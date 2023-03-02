@@ -2,8 +2,15 @@ import "./App.css";
 import React from "react";
 import { FaCheck, FaLuggageCart } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
-// @ts-ignore
-import logo from "./logo.svg";
+/** 
+  TODO:
+  - make the form and the table responsive ( looks like shit on mobile rn )
+  - pull the form into a separate component
+  - pull the table into a separate component
+  - add a filter for specific airlines
+  - add google adds
+  - add the functionality for the whole thing to actually tell you what airlines work or not lmaoo
+*/
 
 function App() {
   function handleSubmit(

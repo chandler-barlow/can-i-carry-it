@@ -28,7 +28,7 @@ function App() {
         </h1>
       </div>
       <div className="flex flex-col md:flex-row">
-        <div className="w-60 sm:basis-4/12 basis-6/12 shadow-lg rounded-lg m-10 p-5 bg-white -mt-20">
+        <div className="w-60 sm:basis-4/12 basis-6/12 shadow-lg rounded-lg m-10 p-5 bg-white -mt-25">
           <h1 className="font-medium text-2xl text-center mb-3">
             Bag Dimensions
           </h1>
@@ -64,9 +64,9 @@ function App() {
           </button>
         </div>
 
-        <div className="-mt-20 sm:basis-7/12 p-5 pt-2 basis-6/12 mr-10 rounded-lg shadow-md bg-white">
+        <div className="-mt-20 sm:basis-7/12 p-5 pt-2 basis-6/12 mr-10 rounded-lg shadow-md bg-white md:flex-1 md:w-100vw mt-0 mb-10 md:w-full">
           <table className="table w-full">
-            <thead className="[&_th]:bg-white [&_th]:text-xl [&_th]:font-medium">
+            <thead className="[&_th]:bg-white [&_th]:text-l [&_th]:font-medium">
               <tr>
                 <th>Airline</th>
                 <th>Personal Item</th>

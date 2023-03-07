@@ -23,14 +23,14 @@ export const BagDimensionsForm: React.FC<
   }
 
   function validNumber(n: number): boolean {
-    return n > 0 && n < 100;
+    return n >= 0;
   }
 
   function handleHeight(
     e: React.ChangeEvent<HTMLInputElement>
   ): void {
     const sHeight: string = e.target.value;
-    const nHeight: number = parseInt(sHeight);
+    const nHeight: number = Number(sHeight);
     if (validNumber(nHeight)) {
       setHeight(nHeight);
     }
@@ -40,7 +40,7 @@ export const BagDimensionsForm: React.FC<
     e: React.ChangeEvent<HTMLInputElement>
   ): void {
     const sWidth: string = e.target.value;
-    const nWidth: number = parseInt(sWidth);
+    const nWidth: number = Number(sWidth);
     if (validNumber(nWidth)) {
       setWidth(nWidth);
     }
@@ -50,7 +50,7 @@ export const BagDimensionsForm: React.FC<
     e: React.ChangeEvent<HTMLInputElement>
   ): void {
     const sLength: string = e.target.value;
-    const nLength: number = parseInt(sLength);
+    const nLength: number = Number(sLength);
     if (validNumber(nLength)) {
       setLength(nLength);
     }
@@ -68,21 +68,21 @@ export const BagDimensionsForm: React.FC<
       <Input
         label="Height"
         placeholder="20"
-        value=""
+        value={height.toString()}
         onChange={handleHeight}
       />
 
       <Input
         label="Width"
         placeholder="20"
-        value=""
+        value={width.toString()}
         onChange={handleWidth}
       />
 
       <Input
         label="Length"
         placeholder="20"
-        value=""
+        value={length.toString()}
         onChange={handleLength}
       />
 

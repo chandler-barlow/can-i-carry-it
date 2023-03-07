@@ -12,48 +12,34 @@ type BagDimensionsFormProps = {
 export const BagDimensionsForm: React.FC<
   BagDimensionsFormProps
 > = ({ handleSubmit }) => {
-  const [width, setWidth] = React.useState(0);
-  const [height, setHeight] = React.useState(0);
-  const [length, setLength] = React.useState(0);
+  const [width, setWidth] = React.useState("");
+  const [height, setHeight] = React.useState("");
+  const [length, setLength] = React.useState("");
+  const [error, setError] = React.useState(false);
 
   function _handleSubmit(
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ): void {
-    handleSubmit(height, width, length);
-  }
+    e.preventDefault();
+    const isInvalid = (n: string) =>
+      /\D/g.test(n) || n === "";
+    const error =
+      isInvalid(width) ||
+      isInvalid(height) ||
+      isInvalid(length);
 
-  function validNumber(n: number): boolean {
-    return n >= 0;
-  }
-
-  function handleHeight(
-    e: React.ChangeEvent<HTMLInputElement>
-  ): void {
-    const sHeight: string = e.target.value;
-    const nHeight: number = Number(sHeight);
-    if (validNumber(nHeight)) {
-      setHeight(nHeight);
+    if (error) {
+      setError(true);
+      return;
     }
-  }
 
-  function handleWidth(
-    e: React.ChangeEvent<HTMLInputElement>
-  ): void {
-    const sWidth: string = e.target.value;
-    const nWidth: number = Number(sWidth);
-    if (validNumber(nWidth)) {
-      setWidth(nWidth);
-    }
-  }
-
-  function handleLength(
-    e: React.ChangeEvent<HTMLInputElement>
-  ): void {
-    const sLength: string = e.target.value;
-    const nLength: number = Number(sLength);
-    if (validNumber(nLength)) {
-      setLength(nLength);
-    }
+    setError(false);
+    handleSubmit(
+      Number(height),
+      Number(width),
+      Number(length)
+    );
+    return;
   }
 
   return (
@@ -68,26 +54,33 @@ export const BagDimensionsForm: React.FC<
       <Input
         label="Height"
         placeholder="20"
-        value={height.toString()}
-        onChange={handleHeight}
+        value={height}
+        onChange={(e) => setHeight(e.target.value)}
       />
 
       <Input
         label="Width"
         placeholder="20"
-        value={width.toString()}
-        onChange={handleWidth}
+        value={width}
+        onChange={(e) => setWidth(e.target.value)}
       />
 
       <Input
         label="Length"
         placeholder="20"
-        value={length.toString()}
-        onChange={handleLength}
+        value={length}
+        onChange={(e) => setLength(e.target.value)}
       />
 
+      {error && (
+        <p className="text-error mt-2 mb-0 text-sm">
+          All inputs must be filled out and contain only
+          digits
+        </p>
+      )}
+
       <button
-        className="btn w-full btn-primary mt-6"
+        className="btn w-full btn-primary mt-10"
         onClick={_handleSubmit}
       >
         Check

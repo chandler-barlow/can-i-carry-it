@@ -43,7 +43,7 @@ export const BagDimensionsForm: React.FC<
   }
 
   return (
-    <div className="w-60 sm:basis-4/12 basis-6/12 shadow-lg rounded-lg m-10 p-5 bg-white -mt-20">
+    <div className="sm:basis-4/12 basis-6/12 shadow-lg rounded-lg m-10 mt-10 p-5 bg-white">
       <h1
         title="Form Title"
         className="font-medium text-2xl text-center mb-3"

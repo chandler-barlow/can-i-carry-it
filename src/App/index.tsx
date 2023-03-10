@@ -53,7 +53,7 @@ function App() {
   }
 
   return (
-    <div className="App h-screen bg-slate-200 flex flex-col justify-between">
+    <div className="App h-auto bg-slate-200 flex flex-col justify-between">
       <NavBar />
 
       <div

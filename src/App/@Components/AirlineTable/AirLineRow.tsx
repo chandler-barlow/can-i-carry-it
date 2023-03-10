@@ -14,8 +14,8 @@ export const AirlineRow: React.FC<AirlineRowProps> = ({
   carryOn,
 }) => {
   return (
-    <tr>
-      <td>{airline}</td>
+    <tr className="[&_td]:text-xs [&_td]:whitespace-normal">
+      <td className=" break-words">{airline}</td>
       <td>
         {personalItem ? (
           <FaCheck className="text-primary" />

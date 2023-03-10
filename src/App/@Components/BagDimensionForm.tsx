@@ -80,7 +80,7 @@ export const BagDimensionsForm: React.FC<
       )}
 
       <button
-        className="btn w-full btn-primary mt-10"
+        className="btn w-full btn-primary mt-6"
         onClick={_handleSubmit}
       >
         Check

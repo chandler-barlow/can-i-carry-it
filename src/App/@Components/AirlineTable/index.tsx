@@ -1,14 +1,14 @@
 import React from "react";
 import { AirlineRow } from "./AirLineRow";
 
-type AirlineRow = {
+type Airline = {
   airline: string;
   personalItem: boolean;
   carryOn: boolean;
 };
 
 type AirlineTableProps = {
-  airlineRows: Array<AirlineRow>;
+  airlineRows: Array<Airline>;
 };
 
 export const AirlineTable: React.FC<AirlineTableProps> = ({

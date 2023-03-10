@@ -43,7 +43,7 @@ export const BagDimensionsForm: React.FC<
   }
 
   return (
-    <div className="w-60 sm:basis-4/12 basis-6/12 shadow-lg rounded-lg m-10 p-5 bg-white -mt-20">
+    <div className="w-60 sm:basis-4/12 basis-6/12 shadow-lg rounded-lg m-10 p-5 bg-white -mt-25">
       <h1
         title="Form Title"
         className="font-medium text-2xl text-center mb-3"
@@ -80,7 +80,7 @@ export const BagDimensionsForm: React.FC<
       )}
 
       <button
-        className="btn w-full btn-primary mt-10"
+        className="btn w-full btn-primary mt-6"
         onClick={_handleSubmit}
       >
         Check

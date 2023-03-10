@@ -8,7 +8,6 @@ type InputProps = {
     e: React.ChangeEvent<HTMLInputElement>
   ) => void;
 };
-
 export const Input: React.FC<InputProps> = ({
   label,
   placeholder,

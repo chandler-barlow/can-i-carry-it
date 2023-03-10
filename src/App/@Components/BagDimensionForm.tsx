@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Input } from "../../@Components/atoms/Input";
 
 type BagDimensionsFormProps = {
@@ -12,10 +12,10 @@ type BagDimensionsFormProps = {
 export const BagDimensionsForm: React.FC<
   BagDimensionsFormProps
 > = ({ handleSubmit }) => {
-  const [width, setWidth] = React.useState("");
-  const [height, setHeight] = React.useState("");
-  const [length, setLength] = React.useState("");
-  const [error, setError] = React.useState(false);
+  const [width, setWidth] = useState("");
+  const [height, setHeight] = useState("");
+  const [length, setLength] = useState("");
+  const [error, setError] = useState(false);
 
   function _handleSubmit(
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>

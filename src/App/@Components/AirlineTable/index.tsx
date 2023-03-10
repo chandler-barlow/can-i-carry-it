@@ -15,8 +15,7 @@ export const AirlineTable: React.FC<AirlineTableProps> = ({
   airlineRows,
 }) => {
   return (
-    // <div className="pt-2 rounded-lg shadow-md bg-white m-5 sm:p-5">
-      <table className="table w-[calc(100%-40px)] m-5">
+      <table className="table w-[calc(100%-40px)] m-5 sm:m-10">
         <thead className="[&_th]:bg-white [&_th]:text-s [&_th]:font-medium sm:[&_th]:text-xl">
           <tr>
             <th>Airline</th>
@@ -37,6 +36,5 @@ export const AirlineTable: React.FC<AirlineTableProps> = ({
           )}
         </tbody>
       </table>
-    // </div>
   );
 };

@@ -14,7 +14,7 @@ export const AirlineRow: React.FC<AirlineRowProps> = ({
   carryOn,
 }) => {
   return (
-    <tr className="[&_td]:text-xs [&_td]:whitespace-normal">
+    <tr className="[&_td]:text-xs sm:[&_td]:text-lg [&_td]:whitespace-normal">
       <td className=" break-words">{airline}</td>
       <td>
         {personalItem ? (

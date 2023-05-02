@@ -4,13 +4,23 @@ export type Dimensions = {
   length: number;
 };
 
-export type Airline = {
+export type AirlineData = {
   name: string;
   personalItemDimensions: Dimensions;
   carryOnDimensions: Dimensions;
 };
 
-export const airlineData: Array<Airline> = [
+const aa = {
+  name: "American Airlines",
+  personalItemDimensions: {
+    height: 17,
+    width: 13,
+    length: 8,
+  },
+  carryOnDimensions: { height: 22, width: 14, length: 9 },
+};
+
+export const airlineData: Array<AirlineData> = [
   {
     name: "Delta",
     personalItemDimensions: {
@@ -30,3 +40,7 @@ export const airlineData: Array<Airline> = [
     carryOnDimensions: { height: 22, width: 14, length: 9 },
   },
 ];
+
+for (let i = 0; i < 100; i++) {
+  airlineData.push(aa);
+}

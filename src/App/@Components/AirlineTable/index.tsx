@@ -1,37 +1,34 @@
 import React from "react";
 import { AirlineRow } from "./AirLineRow";
-
-type Airline = {
-  airline: string;
-  personalItem: boolean;
-  carryOn: boolean;
-};
+import { AirlineRowData } from "../../";
 
 type AirlineTableProps = {
-  airlineRows: Array<Airline>;
+  airlineRows: Array<AirlineRowData>;
 };
 
 export const AirlineTable: React.FC<AirlineTableProps> = ({
   airlineRows,
 }) => {
   return (
-    <div className="-mt-20 sm:basis-7/12 p-5 pt-2 basis-6/12 mr-10 rounded-lg shadow-md bg-white">
-      <table className="table w-full">
-        <thead className="[&_th]:bg-white [&_th]:text-xl [&_th]:font-medium">
-          <tr>
-            <th>Airline</th>
-            <th>Personal Item</th>
-            <th>Carry On</th>
-          </tr>
+    <div className="w-full p-5 pt-2 mr-10 h-96 lg:h-5/6 rounded-lg shadow-md bg-white overflow-auto">
+      <table className="table w-full hover">
+        <thead className="[&_th]:bg-white [&_th]:text-sm sticky top-0 [&_th]:sticky [&_th]:top-0">
+          <th>Airline Name</th>
+          <th align="center">Personal Item</th>
+          <th align="center">Carry On</th>
+          <th align="center">More Info</th>
         </thead>
         <tbody>
           {airlineRows.map(
-            ({ airline, personalItem, carryOn }, index) => (
+            (
+              { airline, isPersonalItem, isCarryOn },
+              index
+            ) => (
               <AirlineRow
                 key={index}
                 airline={airline}
-                personalItem={personalItem}
-                carryOn={carryOn}
+                isPersonalItem={isPersonalItem}
+                isCarryOn={isCarryOn}
               />
             )
           )}

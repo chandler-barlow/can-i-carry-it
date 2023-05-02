@@ -4,31 +4,36 @@ import { ImCross } from "react-icons/im";
 
 type AirlineRowProps = {
   airline: string;
-  personalItem: boolean;
-  carryOn: boolean;
+  isPersonalItem: boolean;
+  isCarryOn: boolean;
 };
 
 export const AirlineRow: React.FC<AirlineRowProps> = ({
   airline,
-  personalItem,
-  carryOn,
+  isPersonalItem,
+  isCarryOn,
 }) => {
   return (
     <tr>
-      <td>{airline}</td>
-      <td>
-        {personalItem ? (
+      <th className="text-sm">{airline}</th>
+      <td align="center">
+        {isPersonalItem ? (
           <FaCheck className="text-primary" />
         ) : (
           <ImCross className="text-error" />
         )}
       </td>
-      <td>
-        {carryOn ? (
+      <td align="center">
+        {isCarryOn ? (
           <FaCheck className="text-primary" />
         ) : (
           <ImCross className="text-error" />
         )}
+      </td>
+      <td align="center">
+        <button className="btn btn-ghost btn-primary">
+          More Info
+        </button>
       </td>
     </tr>
   );

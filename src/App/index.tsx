@@ -4,7 +4,11 @@ import { NavBar } from "../@Components/organisms/NavBar";
 import { BagDimensionsForm } from "./@Components/BagDimensionForm";
 import { AirlineTable } from "./@Components/AirlineTable";
 import { Footer } from "../@Components/organisms/Footer";
-import { Airline, airlineData } from "../airlineData";
+import {
+  AirlineData,
+  airlineData,
+} from "../resources/airlineData";
+
 /** 
   TODO:
   - make the form and the table responsive ( looks like shit on mobile rn )
@@ -15,15 +19,15 @@ import { Airline, airlineData } from "../airlineData";
   - add the functionality for the whole thing to actually tell you what airlines work or not lmaoo
 */
 
-type AirlineRow = {
+export type AirlineRowData = {
   airline: string;
-  personalItem: boolean;
-  carryOn: boolean;
+  isPersonalItem: boolean;
+  isCarryOn: boolean;
 };
 
 function App() {
   const [airlineRows, setAirlineRows] = React.useState<
-    Array<AirlineRow>
+    Array<AirlineRowData>
   >([]);
 
   function handleSubmit(
@@ -31,19 +35,19 @@ function App() {
     width: number,
     length: number
   ): void {
-    const validateAirline = (airline: Airline) => {
-      const personalItem =
+    const validateAirline = (airline: AirlineData) => {
+      const isPersonalItem =
         height <= airline.personalItemDimensions.height &&
         width <= airline.personalItemDimensions.width &&
         length <= airline.personalItemDimensions.length;
-      const carryOn =
+      const isCarryOn =
         height <= airline.carryOnDimensions.height &&
         width <= airline.carryOnDimensions.width &&
         length <= airline.carryOnDimensions.length;
       return {
         airline: airline.name,
-        personalItem,
-        carryOn,
+        isPersonalItem,
+        isCarryOn,
       };
     };
     const newAirlineRows = airlineData.map(validateAirline);
@@ -53,19 +57,19 @@ function App() {
   }
 
   return (
-    <div className="App h-screen bg-slate-200 flex flex-col justify-between">
+    <>
       <NavBar />
-
-      <div
-        title="content"
-        className="flex flex-col md:flex-row"
-      >
-        <BagDimensionsForm handleSubmit={handleSubmit} />
-        <AirlineTable airlineRows={airlineRows} />
+      <div className="App min-h-screen bg-slate-200 flex flex-col justify-between items-center">
+        <div
+          title="content"
+          className="flex flex-col lg:flex-row  lg:w-10/12 justify-center w-screen p-3 gap-5 mt-2"
+        >
+          <BagDimensionsForm handleSubmit={handleSubmit} />
+          <AirlineTable airlineRows={airlineRows} />
+        </div>
       </div>
-
       <Footer />
-    </div>
+    </>
   );
 }
 
